@@ -15,8 +15,8 @@ export default function App() {
   } else {
     return (
       <SafeAreaView style={styles.container}>
-        <Test />
-        {/* <Navigation colorScheme={colorScheme} /> */}
+        {/* <Test /> */}
+        <Navigation colorScheme={colorScheme} />
         <StatusBar />
       </SafeAreaView>
     );
