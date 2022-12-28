@@ -1,19 +1,41 @@
 import { Feather, FontAwesome } from "@expo/vector-icons";
-import { Pressable, StyleSheet, ScrollView } from "react-native";
+import { useState } from "react";
+import {
+  Pressable,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { Text, View } from "../components/Themed";
 
 export default function Test() {
+  const [show, setShow] = useState<Boolean>(false);
+
+  const handleShow = () => {
+    setShow(!show);
+  };
+  const image: String =
+    "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg";
   return (
-    // <ScrollView>
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.balanceHeader}>
         <Text style={styles.title}>Total Balance</Text>
-        <Feather size={20} name="eye" color="grey" />
+        <TouchableOpacity onPress={handleShow}>
+          <Feather size={20} name={show ? "eye-off" : "eye"} color="grey" />
+        </TouchableOpacity>
       </View>
-      <View style={styles.balance}>
-        <Text style={styles.dollar}>$</Text>
-        <Text style={styles.amount}>0.00</Text>
-      </View>
+      {show ? (
+        <View style={styles.balance}>
+          <Text style={styles.dollar}>$</Text>
+          <Text style={styles.amount}>0.00</Text>
+        </View>
+      ) : (
+        <View style={styles.balance}>
+          <Text style={styles.amount}>*****</Text>
+        </View>
+      )}
+
       <Text style={styles.headerTitle}>Buy Your First Crypto</Text>
       <Text style={styles.subTitle}>
         Start your crypto journey with the most popular coins!
@@ -25,11 +47,17 @@ export default function Test() {
 
       <View style={styles.card}>
         <View style={styles.coinType}>
-          <FontAwesome
+          {/* <FontAwesome
             name="bitcoin"
             size={17}
             color="red"
             style={styles.coinIcon}
+          /> */}
+          <Image
+            style={styles.coinIcon}
+            source={{
+              uri: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+            }}
           />
           <Text style={styles.coinName}>BUSD</Text>
           <Text style={styles.coinSub}>BUSD</Text>
@@ -49,11 +77,17 @@ export default function Test() {
       </View>
       <View style={styles.card}>
         <View style={styles.coinType}>
-          <FontAwesome
+          {/* <FontAwesome
             name="bitcoin"
             size={17}
             color="red"
             style={styles.coinIcon}
+          /> */}
+          <Image
+            style={styles.coinIcon}
+            source={{
+              uri: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+            }}
           />
           <Text style={styles.coinName}>BUSD</Text>
           <Text style={styles.coinSub}>BUSD</Text>
@@ -73,11 +107,17 @@ export default function Test() {
       </View>
       <View style={styles.card}>
         <View style={styles.coinType}>
-          <FontAwesome
+          {/* <FontAwesome
             name="bitcoin"
             size={17}
             color="red"
             style={styles.coinIcon}
+          /> */}
+          <Image
+            style={styles.coinIcon}
+            source={{
+              uri: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+            }}
           />
           <Text style={styles.coinName}>BUSD</Text>
           <Text style={styles.coinSub}>BUSD</Text>
@@ -97,11 +137,17 @@ export default function Test() {
       </View>
       <View style={styles.card}>
         <View style={styles.coinType}>
-          <FontAwesome
+          {/* <FontAwesome
             name="bitcoin"
             size={17}
             color="red"
             style={styles.coinIcon}
+          /> */}
+          <Image
+            style={styles.coinIcon}
+            source={{
+              uri: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+            }}
           />
           <Text style={styles.coinName}>BUSD</Text>
           <Text style={styles.coinSub}>BUSD</Text>
@@ -119,14 +165,75 @@ export default function Test() {
           </Pressable>
         </View>
       </View>
-    </View>
+      <View style={styles.card}>
+        <View style={styles.coinType}>
+          {/* <FontAwesome
+            name="bitcoin"
+            size={17}
+            color="red"
+            style={styles.coinIcon}
+          /> */}
+          <Image
+            style={styles.coinIcon}
+            source={{
+              uri: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+            }}
+          />
+          <Text style={styles.coinName}>BUSD</Text>
+          <Text style={styles.coinSub}>BUSD</Text>
+        </View>
+        <Text style={styles.coinDetail}>
+          Best Stablecoin for beginners on Binance. Holding a one to one value
+          with the US Dollar.
+        </Text>
+        <View style={styles.coinAmount}>
+          <Text style={styles.coinValue}>$</Text>
+          <Text style={styles.coinValue}>1.00</Text>
+
+          <Pressable style={styles.button}>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>Buy</Text>
+          </Pressable>
+        </View>
+      </View>
+      <View style={styles.card}>
+        <View style={styles.coinType}>
+          {/* <FontAwesome
+            name="bitcoin"
+            size={17}
+            color="red"
+            style={styles.coinIcon}
+          /> */}
+          <Image
+            style={styles.coinIcon}
+            source={{
+              uri: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+            }}
+          />
+          <Text style={styles.coinName}>BUSD</Text>
+          <Text style={styles.coinSub}>BUSD</Text>
+        </View>
+        <Text style={styles.coinDetail}>
+          Best Stablecoin for beginners on Binance. Holding a one to one value
+          with the US Dollar.
+        </Text>
+        <View style={styles.coinAmount}>
+          <Text style={styles.coinValue}>$</Text>
+          <Text style={styles.coinValue}>1.00</Text>
+
+          <Pressable style={styles.button}>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>Buy</Text>
+          </Pressable>
+        </View>
+      </View>
+      {/* </View> */}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
+    marginTop: 15,
   },
   title: {
     marginRight: 5,
@@ -178,7 +285,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#D3D3D3",
     width: "90%",
-    height: "25%",
+    height: "17%",
     margin: 10,
     borderRadius: 10,
     flexDirection: "column",
@@ -190,7 +297,15 @@ const styles = StyleSheet.create({
   coinName: {
     fontSize: 17,
   },
-  coinIcon: { alignSelf: "center", marginRight: 15 },
+  coinIcon: {
+    alignSelf: "center",
+    marginRight: 15,
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+    borderWidth: 5,
+    borderColor: "#D3D3D3",
+  },
   coinSub: {
     color: "gray",
     marginTop: 3,
