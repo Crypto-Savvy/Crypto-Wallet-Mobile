@@ -1,9 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView, StyleSheet } from "react-native";
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
+import Test from "./screens/TestScreen";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -13,10 +14,17 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        {/* <StatusBar /> */}
-      </SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <Test />
+        {/* <Navigation colorScheme={colorScheme} /> */}
+        <StatusBar />
+      </SafeAreaView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
