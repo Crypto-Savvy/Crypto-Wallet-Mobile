@@ -5,6 +5,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import Test from "./screens/TestScreen";
+import ChooseCryptoScreen from "./screens/ChooseCryptoScreen";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -15,7 +16,8 @@ export default function App() {
   } else {
     return (
       <SafeAreaView style={styles.container}>
-        <Test />
+        <ChooseCryptoScreen />
+        {/* <Test /> */}
         {/* <Navigation colorScheme={colorScheme} /> */}
         <StatusBar />
       </SafeAreaView>
