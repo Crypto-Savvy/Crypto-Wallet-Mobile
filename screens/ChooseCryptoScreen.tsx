@@ -6,24 +6,35 @@ import {
   TouchableOpacity,
   Text,
   TextInput,
+  FlatList,
+  ListRenderItem,
+  Image,
 } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
+import dummyData from "../constants/dummy";
+import { Coin } from "../types";
 
 export default function ChooseCryptoScreen() {
-  interface Coin {
-    name: string;
-    code: string;
-    balance: string;
-    icon: string;
-  }
-  const dummyData: Coin[] = [
-    {
-      name: "Polygon",
-      code: "MATIC",
-      balance: "$0.783300",
-      icon: "",
-    },
-  ];
+  const Item = ({ data }: { data: Coin }): JSX.Element => (
+    <View
+      style={{
+        // backgroundColor: "#eeeeee",
+        borderRadius: 10,
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        flexDirection: "column",
+      }}
+    >
+      <View style={{ flexDirection: "row", flex: 1 }}>
+        {/* <Image  width={20}  source={{ uri: `${data.icon}` }} /> */}
+        <Text style={{ fontSize: 24 }}>{data.name}</Text>
+      </View>
+    </View>
+  );
+
+  const renderItem: ListRenderItem<Coin> = ({ item }) => <Item data={item} />;
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -47,6 +58,11 @@ export default function ChooseCryptoScreen() {
           <TextInput placeholder="Search" style={styles.input} />
         </View>
       </View>
+      <FlatList
+        data={dummyData}
+        renderItem={renderItem}
+        keyExtractor={(item: Coin) => item.id}
+      />
     </View>
   );
 }

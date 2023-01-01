@@ -6,6 +6,9 @@ import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import Test from "./screens/TestScreen";
 import ChooseCryptoScreen from "./screens/ChooseCryptoScreen";
+import BuySellScreen from "./screens/BuySellScreen";
+import { Provider } from "react-redux";
+import store from "./store";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -15,12 +18,15 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaView style={styles.container}>
-        <ChooseCryptoScreen />
-        {/* <Test /> */}
-        {/* <Navigation colorScheme={colorScheme} /> */}
-        <StatusBar />
-      </SafeAreaView>
+      <Provider store={store}>
+        <SafeAreaView style={styles.container}>
+          <BuySellScreen />
+          {/* <ChooseCryptoScreen /> */}
+          {/* <Test /> */}
+          {/* <Navigation colorScheme={colorScheme} /> */}
+          <StatusBar />
+        </SafeAreaView>
+      </Provider>
     );
   }
 }
