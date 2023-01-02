@@ -20,8 +20,8 @@ export default function App() {
     return (
       <Provider store={store}>
         <SafeAreaView style={styles.container}>
-          <BuySellScreen />
-          {/* <ChooseCryptoScreen /> */}
+          {/* <BuySellScreen /> */}
+          <ChooseCryptoScreen />
           {/* <Test /> */}
           {/* <Navigation colorScheme={colorScheme} /> */}
           <StatusBar />

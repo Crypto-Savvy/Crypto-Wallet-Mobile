@@ -1,8 +1,6 @@
 import { View } from "../components/Themed";
 import {
-  Pressable,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
   Text,
   TextInput,
@@ -18,17 +16,34 @@ export default function ChooseCryptoScreen() {
   const Item = ({ data }: { data: Coin }): JSX.Element => (
     <View
       style={{
-        // backgroundColor: "#eeeeee",
         borderRadius: 10,
-        padding: 20,
-        marginVertical: 8,
+        marginVertical: 5,
         marginHorizontal: 16,
         flexDirection: "column",
       }}
     >
-      <View style={{ flexDirection: "row", flex: 1 }}>
-        {/* <Image  width={20}  source={{ uri: `${data.icon}` }} /> */}
-        <Text style={{ fontSize: 24 }}>{data.name}</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          flex: 1,
+          alignItems: "center",
+          marginTop: 10,
+        }}
+      >
+        <Image source={{ uri: `${data.icon}` }} style={styles.icon} />
+        <View>
+          <Text style={{ fontSize: 15 }}>{data.name}</Text>
+          <Text
+            style={{ fontSize: 15, alignSelf: "flex-start", color: "#D3D3D3" }}
+          >
+            {data.code}
+          </Text>
+        </View>
+        <View
+          style={{ flex: 1, flexDirection: "column", alignItems: "flex-end" }}
+        >
+          <Text>{data.price}</Text>
+        </View>
       </View>
     </View>
   );
@@ -58,6 +73,16 @@ export default function ChooseCryptoScreen() {
           <TextInput placeholder="Search" style={styles.input} />
         </View>
       </View>
+      <Text
+        style={{
+          paddingLeft: 20,
+          paddingTop: 10,
+          fontWeight: "400",
+          fontSize: 17,
+        }}
+      >
+        Top Searches
+      </Text>
       <FlatList
         data={dummyData}
         renderItem={renderItem}
@@ -105,8 +130,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    // fontSize: 20,
     marginLeft: 10,
     width: "90%",
+  },
+  icon: {
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+    borderWidth: 5,
+    borderColor: "#eeee",
+    marginRight: 10,
   },
 });
