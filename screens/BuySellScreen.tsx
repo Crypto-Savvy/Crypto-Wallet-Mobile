@@ -14,28 +14,44 @@ import {
   Feather,
 } from "@expo/vector-icons";
 import { useAppSelector, useAppDispatch } from "../store/hooks";
-import { concatenate, backSpace } from "../store/buySlice";
+import {
+  concatenate,
+  backSpace,
+  changeExchange,
+  swap,
+} from "../store/buySlice";
 import { BottomSheet } from "react-native-btr";
 import { useState } from "react";
 import { Coin } from "../types";
 import dummyData from "../constants/dummy";
+import { Swap } from "../store/buySlice";
 
 export default function BuySellScreen() {
   const value = useAppSelector((state) => state.buy.value);
   const color = useAppSelector((state) => state.buy.color);
+  const exchangeCurrency = useAppSelector(
+    (state) => state.buy.exchangeCurrency
+  );
+  const min = useAppSelector((state) => state.buy.min);
+  const max = useAppSelector((state) => state.buy.max);
+  const isSwap = useAppSelector((state) => state.buy.isSwap);
+  const cryptoCode = useAppSelector((state) => state.buy.cryptoCode);
   const dispatch = useAppDispatch();
   const [visible, setVisible] = useState<boolean>(false);
   const toggle = () => setVisible(!visible);
 
+  // const swapData: Ini = useAppSelector((state) => (state.buy));
+
   const Item = ({ data }: { data: Coin }): JSX.Element => (
-    <View
+    <TouchableOpacity
+      onPress={() => {
+        dispatch(changeExchange(data));
+        toggle();
+      }}
       style={{
-        // backgroundColor: "#eeeeee",
         borderRadius: 10,
         paddingLeft: 20,
         paddingBottom: 15,
-        // marginVertical: 8,
-        // marginHorizontal: 16,
         flexDirection: "row",
         alignItems: "center",
       }}
@@ -45,12 +61,11 @@ export default function BuySellScreen() {
         {data.code}
       </Text>
       <Text style={{ color: "#D3D3D3" }}>{data.name}</Text>
-
-      {/* <Image style={styles.icon} source={{ uri: data.icon }} /> */}
-    </View>
+    </TouchableOpacity>
   );
 
   const renderItem: ListRenderItem<Coin> = ({ item }) => <Item data={item} />;
+
   return (
     <View style={styles.container}>
       <BottomSheet
@@ -99,22 +114,29 @@ export default function BuySellScreen() {
         <View style={styles.amountContainer}>
           <View style={styles.amountContainer}>
             <Text style={styles.amount}>{value}</Text>
-            <Text style={styles.currency}>USD</Text>
-            <TouchableOpacity onPress={toggle}>
-              <AntDesign
-                name="caretdown"
-                size={12}
-                color="gray"
-                style={styles.down}
-              />
-            </TouchableOpacity>
+            <Text style={styles.currency}>{exchangeCurrency}</Text>
+            {!isSwap && (
+              <TouchableOpacity onPress={toggle}>
+                <AntDesign
+                  name="caretdown"
+                  size={12}
+                  color="gray"
+                  style={styles.down}
+                />
+              </TouchableOpacity>
+            )}
           </View>
-          <View style={styles.swap}>
+          <TouchableOpacity
+            onPress={() => dispatch(swap(exchangeCurrency))}
+            style={styles.swap}
+          >
             <MaterialIcons name="swap-calls" size={24} color="gray" />
-            <Text style={styles.coinCode}>BTC</Text>
-          </View>
+            <Text style={styles.coinCode}>{cryptoCode}</Text>
+          </TouchableOpacity>
         </View>
-        <Text style={styles.amountRange}>10.00 - 20000.00 USD</Text>
+        <Text style={styles.amountRange}>
+          {min} - {max} {exchangeCurrency}
+        </Text>
       </View>
 
       <View style={styles.conversionContainer}>
@@ -298,7 +320,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    // fontSize: 20,
     marginLeft: 10,
     width: "90%",
   },

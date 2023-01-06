@@ -7,6 +7,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "10.00",
+    max: "1000000.00",
   },
   {
     id: "2",
@@ -14,6 +16,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "9.00",
+    max: "2000000.00",
   },
   {
     id: "3",
@@ -21,6 +25,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "8.00",
+    max: "3000000.00",
   },
   {
     id: "4",
@@ -28,6 +34,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "7.00",
+    max: "4500000.00",
   },
   {
     id: "5",
@@ -35,6 +43,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "6.00",
+    max: "3200000.00",
   },
   {
     id: "6",
@@ -42,6 +52,8 @@ const dummyData: Coin[] = [
     code: "USDT",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "09.00",
+    max: "1000000.00",
   },
   {
     id: "7",
@@ -49,6 +61,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "10.00",
+    max: "1000000.00",
   },
   {
     id: "8",
@@ -56,6 +70,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "10.00",
+    max: "1000000.00",
   },
   {
     id: "9",
@@ -63,6 +79,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "10.00",
+    max: "1000000.00",
   },
   {
     id: "10",
@@ -70,6 +88,8 @@ const dummyData: Coin[] = [
     code: "MATIC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "10.00",
+    max: "1000000.00",
   },
   {
     id: "11",
@@ -77,6 +97,8 @@ const dummyData: Coin[] = [
     code: "USDC",
     price: "$0.783300",
     icon: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/Aang-Avatar-The-Last-Airbender.jpg",
+    min: "10.00",
+    max: "1000000.00",
   },
 ];
 

@@ -42,4 +42,6 @@ export type Coin = {
   code: string;
   price: string;
   icon: string;
+  min: string;
+  max: string;
 };
