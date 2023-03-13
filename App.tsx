@@ -7,6 +7,7 @@ import Navigation from "./navigation";
 import Test from "./screens/TestScreen";
 import ChooseCryptoScreen from "./screens/ChooseCryptoScreen";
 import BuySellScreen from "./screens/BuySellScreen";
+import HomeScreen from "./screens/HomeScreen";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -20,10 +21,11 @@ export default function App() {
     return (
       <Provider store={store}>
         <SafeAreaView style={styles.container}>
-          <BuySellScreen />
+          {/* <BuySellScreen /> */}
           {/* <ChooseCryptoScreen /> */}
           {/* <Test /> */}
           {/* <Navigation colorScheme={colorScheme} /> */}
+          <HomeScreen />
           <StatusBar />
         </SafeAreaView>
       </Provider>

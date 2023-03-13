@@ -194,6 +194,7 @@ export default function BuySellScreen() {
             styles.buttonContainer,
             { backgroundColor: color ? "yellow" : "#D3D3D3" },
           ]}
+          disabled={color ? false : true}
         >
           <Text
             style={[styles.buttonText, { color: color ? "black" : "#A1A1A1" }]}
